@@ -1,0 +1,37 @@
+[
+  {
+    "_id": "589b27461e523294227484e2",
+    "chat_id": "589b27461e523294227484e2",
+    "sender_id": "589b3cbe458227fe6585cbc6",
+    "message": "Sint pariatur deserunt do nostrud minim est irure.",
+    "send_date": "2016-09-12T05:16:38-02:00"
+  },
+  {
+    "_id": "589b27461e523294227484e2",
+    "chat_id": "589b27461e523294227484e2",
+    "sender_id": "589b3cbe458227fe6585cbc7",
+    "message": "Amet magna officia id laboris qui et Lorem ullamco sit nostrud.",
+    "send_date": "2016-09-03T06:39:08-02:00"
+  },
+  {
+    "_id": "589b27461e523294227484e2",
+    "chat_id": "589b27461e523294227484e2",
+    "sender_id": "589b3cbe458227fe6585cbc6",
+    "message": "Nulla elit enim nulla pariatur consequat velit.",
+    "send_date": "2016-02-18T02:52:14-01:00"
+  },
+  {
+    "_id": "589b27464c94cc5b518e7930",
+    "chat_id": "58a49979b0cc51758cc9941f",
+    "sender_id": "589b3cbe458227fe6585cbc6",
+    "message": "Fugiat adipisicing anim adipisicing non.",
+    "send_date": "2014-11-29T08:01:59-01:00"
+  },
+  {
+    "_id": "589b27464c94cc5b518e7930",
+    "chat_id": "58a4997924c712c862b6bf1c",
+    "sender_id": "589b3cbe458227fe6585cbc7",
+    "message": "Excepteur tempor nisi ut dolore irure id.",
+    "send_date": "2017-02-01T09:27:02-01:00"
+  }
+]

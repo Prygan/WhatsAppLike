@@ -1,0 +1,37 @@
+<ion-view id="chat-detail" view-title="{{chat.name}}">
+  <ion-content has-bouncing="true" class="has-header has-footer">
+    <div ng-repeat="message in messages" class="message-wrapper">
+      <div ng-if="user !== message.sender_id">
+        <div class="chat-bubble left">
+          <div class="message" ng-bind-html="message.message"></div>
+          <div class="message-detail">
+            <span class="bold">{{message.sender}}</span>,
+            <span>{{ message.send_date | date:'medium' }}</span>
+          </div>
+        </div>
+      </div>
+      <div ng-if="user === message.sender_id">
+        <div class="chat-bubble right">
+          <div class="message" ng-bind-html="message.message"></div>
+          <div class="message-detail">
+            <!--<span class="bold">{{message.sender}}</span>,-->
+            <span class="bold">Vous</span>,
+            <span>{{ message.send_date | date: 'medium' }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="cf"></div>
+    </div>
+  </ion-content>
+  <form name="sendMessageForm" ng-submit="sendMessage(sendMessageForm)" novalidate>
+    <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+      <label class="item-input-wrapper">
+        <textarea ng-model="input.message" value="" placeholder="Send a new message..." required minlength="1" maxlength="1500" msd-elastic></textarea>
+      </label>
+      <div class="footer-btn-wrap">
+        <button class="button button-icon icon ion-ios-paperplane-outline footer-btn" type="submit" ng-disabled="!input.message || input.message === ''">
+        </button>
+      </div>
+    </ion-footer-bar>
+  </form>
+</ion-view>

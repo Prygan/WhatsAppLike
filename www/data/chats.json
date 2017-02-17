@@ -1,0 +1,38 @@
+[
+  {
+    "id": "589b27461e523294227484e2",
+    "name": "Hubbard",
+    "lastText": "Eu occaecat ullamco velit fugiat aliquip sit anim qui eiusmod.",
+    "face": "img/ben.png"
+  },
+  {
+    "id": "589b27464c94cc5b518e7930",
+    "name": "Lorraine",
+    "lastText": "Exercitation veniam est magna irure minim.",
+    "face": "img/ben.png"
+  },
+  {
+    "id": "589b27464e405da5a1bfb8e3",
+    "name": "Dolores",
+    "lastText": "Laborum labore velit incididunt anim cupidatat dolor ullamco incididunt.",
+    "face": "img/ben.png"
+  },
+  {
+    "id": "589b2746fccb213a79547de1",
+    "name": "Jan",
+    "lastText": "Labore occaecat ea proident do commodo adipisicing dolor.",
+    "face": "img/ben.png"
+  },
+  {
+    "id": "589b274621456d4c84eb8350",
+    "name": "Sweeney",
+    "lastText": "Magna sunt ex duis fugiat mollit consequat irure nostrud.",
+    "face": "img/ben.png"
+  },
+  {
+    "id": "589b2746c9f44075aed772b6",
+    "name": "Richardson",
+    "lastText": "Ullamco in ea adipisicing est irure.",
+    "face": "img/ben.png"
+  }
+]
