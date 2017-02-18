@@ -2,7 +2,11 @@
   'use_strict'
   angular.module('whatsapplike.controllers').controller('ChatNewCtrl', ChatNewCtrl)
 
-  function ChatNewCtrl($scope, $stateParams, ChatsSrv) {
-    console.log("coucou");
+  function ChatNewCtrl($scope, $stateParams, $state, ChatsSrv) {
+    $scope.input = {};
+    $scope.createConv = function(createConvForm) {
+      ChatsSrv.add($scope.input.name, $scope.input.description);
+      $state.go('tab.chats');
+    }
   }
 })();

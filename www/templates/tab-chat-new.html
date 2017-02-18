@@ -1,9 +1,19 @@
 <ion-view view-title="Nouvelle conversations">
   <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        IT WORKS
-    </ion-toggle>
-    </ion-list>
+    <form name="createConvForm" ng-submit="createConv(createConvForm)" novalidate>
+      <div class="list card">
+        <label class="item item-input">
+          <input ng-model="input.name" type="text" name="nom" placeholder="Nom" class="item"/>
+        </label>
+        <label class="item item-input">
+          <input ng-model="input.description" type="text" name="description" placeholder="Description" class="item"/>
+        </label>
+      </div>
+      <div class="text-center list card">
+        <button class="button button-block button-stable" type="submit" ng-disabled="!input.name || input.name === ''">
+          Créer
+        </button>
+      </div>
+  </form>
   </ion-content>
 </ion-view>

@@ -56,7 +56,7 @@ angular.module('whatsapplike', ['ionic', 'whatsapplike.controllers', 'whatsappli
     .state('tab.chat-new', {
       url: '/chats/new',
       views: {
-        'tab-chat-new': {
+        'tab-chats': {
           templateUrl: 'templates/tab-chat-new.html',
           controller: 'ChatNewCtrl'
         }

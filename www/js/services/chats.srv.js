@@ -30,6 +30,16 @@
       },
       get: function(chatId) {
         return loadChats().then(chats => chats.find(c => c.id === chatId));
+      },
+      add: function(name, description) {
+        var chat = {
+          _id : 'id',
+          name : name,
+          description : description ? description : "",
+          lastText : "",
+          face : ""
+        }
+        return loadChats().then(() => chats.push(chat));
       }
     };
   }
