@@ -1,21 +1,24 @@
-<ion-nav-view>
-  <ion-view view-title="Connexion">
-    <ion-content>
-      <form name="signInForm" ng-submit="signIn(signInForm)" novalidate>
-        <div class="list card">
-          <label class="item item-input">
-            <input ng-model="input.email" type="text" name="email" placeholder="Email" class="item"/>
-          </label>
-          <label class="item item-input">
-            <input ng-model="input.password" type="text" name="password" placeholder="Password" class="item"/>
-          </label>
-        </div>
-        <div class="text-center list card">
-          <button class="button button-block button-stable" type="submit" ng-disabled="!input.email || input.email === '' || !input.password || input.password === ''">
-            Se connecter
-          </button>
-        </div>
-    </form>
-    </ion-content>
-  </ion-view>
-</ion-nav-view>
+<ion-view view-title="Connexion">
+  <ion-content>
+    <form name="signInForm" ng-submit="signIn(signInForm)" novalidate>
+      <div class="list card">
+        <label class="item item-input">
+          <input ng-model="input.email" type="text" name="email" placeholder="Email" class="item"/>
+        </label>
+        <label class="item item-input">
+          <input ng-model="input.password" type="password" name="password" placeholder="Password" class="item"/>
+        </label>
+      </div>
+      <div class="text-center list card">
+        <button class="button button-block button-stable" type="submit" ng-disabled="!input.email || input.email === '' || !input.password || input.password === ''">
+          Se connecter
+        </button>
+      </div>
+  </form>
+  <div class="text-center">
+    <a href="#/signup">
+      Créer un compte
+    </a>
+  </div>
+  </ion-content>
+</ion-view>
