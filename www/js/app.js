@@ -25,7 +25,7 @@ angular.module('whatsapplike', ['ionic', 'whatsapplike.controllers', 'whatsappli
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
@@ -81,10 +81,20 @@ angular.module('whatsapplike', ['ionic', 'whatsapplike.controllers', 'whatsappli
         controller: 'AccountCtrl'
       }
     }
+  })
+
+  .state('signin', {
+    url: '/signin',
+    views: {
+      'signin': {
+        templateUrl: 'templates/signin.html',
+        controller: 'SigninCtrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/contacts');
+  $urlRouterProvider.otherwise('/signin');
 
 });
 
