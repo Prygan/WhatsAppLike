@@ -2,18 +2,21 @@
   'use_strict'
   angular.module('whatsapplike.controllers').controller('ChatDetailCtrl', ChatDetailCtrl)
 
-  function ChatDetailCtrl($scope, $stateParams, ChatsSrv, MessagesSrv) {
+  function ChatDetailCtrl($scope, $state, $stateParams, ChatsSrv, MessagesSrv, AuthentificationSrv) {
+    $scope.user = AuthentificationSrv.user();
+
     ChatsSrv.get($stateParams.chatId).then(function(chat){
       $scope.chat = chat;
     });
-    MessagesSrv.get($stateParams.chatId).then(function(messages){
-      $scope.messages = messages;
+
+    $scope.$on('$ionicView.enter', function () {
+      MessagesSrv.get($stateParams.chatId).then(function(messages){
+        $scope.messages = messages;
+      });
     });
-    //mock the user id
-    $scope.user = '589b3cbe458227fe6585cbc7';
 
     $scope.sendMessage = function(sendMessageForm) {
-      MessagesSrv.add($scope.chat.id, $scope.user, $scope.input.message);
+      MessagesSrv.add($scope.chat.id, $scope.user._id, $scope.input.message);
       MessagesSrv.get($stateParams.chatId).then(function(messages){
         $scope.messages = messages;
       });

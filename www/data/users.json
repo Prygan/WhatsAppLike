@@ -1,6 +1,6 @@
 [
   {
-    "id" : "1234",
+    "_id" : "589b3cbe458227fe6585cbc7",
     "email" : "foo@bar.com",
     "firstName" : "foo",
     "lastName" : "bar",

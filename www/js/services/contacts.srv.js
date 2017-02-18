@@ -13,7 +13,7 @@
           deferred.resolve(contacts);
         }, function(error) {
           $log.error(error);
-          $deferred.reject(error);
+          deferred.reject(error);
         });
       } else {
         deferred.resolve(contacts);

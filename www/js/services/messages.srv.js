@@ -14,7 +14,7 @@
           deferred.resolve(messages);
         }, function(error) {
           $log.error(error);
-          $deferred.reject(error);
+          deferred.reject(error);
         });
       } else {
         deferred.resolve(messages);

@@ -1,7 +1,7 @@
 <ion-view id="chat-detail" view-title="{{chat.name}}">
   <ion-content has-bouncing="true" class="has-header has-footer">
     <div ng-repeat="message in messages" class="message-wrapper">
-      <div ng-if="user !== message.sender_id">
+      <div ng-if="user._id !== message.sender_id">
         <div class="chat-bubble left">
           <div class="message" ng-bind-html="message.message"></div>
           <div class="message-detail">
@@ -10,7 +10,7 @@
           </div>
         </div>
       </div>
-      <div ng-if="user === message.sender_id">
+      <div ng-if="user._id === message.sender_id">
         <div class="chat-bubble right">
           <div class="message" ng-bind-html="message.message"></div>
           <div class="message-detail">
