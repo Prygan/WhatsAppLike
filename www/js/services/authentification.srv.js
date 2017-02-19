@@ -9,7 +9,6 @@
       var deferred = $q.defer();
       if(!user) {
         UsersSrv.all().then(function(response) {
-          console.log(response);
           var user_found = response.find(u => u.email === email && u.password === password);
           if(user_found) {
               user = {

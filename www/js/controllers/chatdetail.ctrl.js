@@ -5,11 +5,11 @@
   function ChatDetailCtrl($scope, $state, $stateParams, ChatsSrv, MessagesSrv, AuthentificationSrv) {
     $scope.user = AuthentificationSrv.user();
 
-    ChatsSrv.get($stateParams.chatId).then(function(chat){
-      $scope.chat = chat;
-    });
-
     $scope.$on('$ionicView.enter', function () {
+      ChatsSrv.get($stateParams.chatId).then(function(chat){
+        $scope.chat = chat;
+      });
+
       MessagesSrv.get($stateParams.chatId).then(function(messages){
         $scope.messages = messages;
       });

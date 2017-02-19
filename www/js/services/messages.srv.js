@@ -2,7 +2,7 @@
   'use_strict'
   angular.module('whatsapplike.services').factory('MessagesSrv', MessagesSrv);
 
-  function MessagesSrv($http, $log, $q, ContactsSrv) {
+  function MessagesSrv($http, $log, $q, ContactsSrv, UuidSrv) {
     var messages = null;
 
     function loadMessages(){
@@ -42,7 +42,7 @@
       },
       add: function(chatId, userId, inputMsg) {
         var message = {
-          _id : 'id',
+          _id : UuidSrv.generateUuid(),
           chat_id : chatId,
           sender_id : userId,
           message : inputMsg,

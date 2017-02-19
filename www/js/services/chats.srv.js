@@ -2,7 +2,7 @@
   'use_strict'
   angular.module('whatsapplike.services').factory('ChatsSrv', ChatsSrv);
 
-  function ChatsSrv($http, $log, $q) {
+  function ChatsSrv($http, $log, $q, UuidSrv) {
     var chats = null;
 
     function loadChats(){
@@ -33,12 +33,13 @@
       },
       add: function(name, description) {
         var chat = {
-          _id : 'id',
+          id : UuidSrv.generateUuid(),
           name : name,
           description : description ? description : "",
           lastText : "",
           face : ""
         }
+        console.log(chat);
         return loadChats().then(() => chats.push(chat));
       }
     };
