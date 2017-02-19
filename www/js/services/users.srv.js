@@ -34,9 +34,9 @@
           email : mail,
           firstName : fn,
           lastName : ln,
-          password : pssw
+          password : psswd
         }
-        return loadUsers().then(users.push(user));
+        return loadUsers().then(() => users.push(user));
       }
     };
   }

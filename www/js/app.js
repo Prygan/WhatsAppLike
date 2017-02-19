@@ -87,6 +87,12 @@ angular.module('whatsapplike', ['ionic', 'whatsapplike.controllers', 'whatsappli
     url: '/signin',
     templateUrl: 'templates/signin.html',
     controller: 'SigninCtrl'
+  })
+
+  .state('signup', {
+    url: '/signup',
+    templateUrl: 'templates/signup.html',
+    controller: 'SignupCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback

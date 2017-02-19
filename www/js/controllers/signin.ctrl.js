@@ -6,7 +6,7 @@
     $scope.input = {};
 
     $scope.$on('$ionicView.enter', function () {
-      if($scope.user) {
+      if(AuthentificationSrv.user()) {
         $state.go('tab.chats');
       }
     });
@@ -14,7 +14,6 @@
     $scope.signIn = function(signInForm) {
       AuthentificationSrv.auth($scope.input.email, $scope.input.password).then(function(user) {
         if(user) {
-          $scope.user = user;
           $state.go('tab.chats');
         }
       });

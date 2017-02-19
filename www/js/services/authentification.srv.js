@@ -2,19 +2,21 @@
   'use_strict'
   angular.module('whatsapplike.services').factory('AuthentificationSrv', AuthentificationSrv);
 
-  function AuthentificationSrv($http, $log, $q) {
+  function AuthentificationSrv($http, $log, $q, UsersSrv) {
     var user = null;
 
     function authentificate(email, password){
       var deferred = $q.defer();
       if(!user) {
-        $http.get('/data/users.json').then(function(response) {
-          var user_found = response.data.find(u => u.email === email && u.password === password);
+        UsersSrv.all().then(function(response) {
+          console.log(response);
+          var user_found = response.find(u => u.email === email && u.password === password);
           if(user_found) {
               user = {
                 _id : user_found._id,
                 firstName : user_found.firstName,
-                lastName : user_found.lastName
+                lastName : user_found.lastName,
+                email : user_found.email
               }
               deferred.resolve(user);
           }
@@ -35,7 +37,7 @@
         return authentificate(email, password);
       },
       user: _ => user,
-      suppress: function(){
+      signout: function(){
         user = null;
       }
     };
