@@ -47,6 +47,19 @@
     <script src="lib/moment/min/moment.min.js"></script>
     <script src="lib/moment/locale/fr.js"></script>
     <script src="lib/angular-moment/angular-moment.js"></script>
+    <script src="lib/angularfire/dist/angularfire.js"></script>
+    <script src="lib/firebase/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCaLt5y44sLOnpHf8_UEi51fBJp52WperI",
+        authDomain: "whatsapplike-608ed.firebaseapp.com",
+        databaseURL: "https://whatsapplike-608ed.firebaseio.com",
+        storageBucket: "whatsapplike-608ed.appspot.com",
+        messagingSenderId: "160056131134"
+      };
+      firebase.initializeApp(config);
+    </script>
   </head>
   <body ng-app="whatsapplike">
     <!--

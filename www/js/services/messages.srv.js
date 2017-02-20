@@ -46,7 +46,7 @@
           chat_id : chatId,
           sender_id : userId,
           message : inputMsg,
-          send_date : Date.now()
+          send_date : new Date().toISOString()
         }
         return loadMessages().then(messages.push(message));
       }
