@@ -2,7 +2,7 @@
   'use_strict'
   angular.module('whatsapplike.controllers').controller('ChatDetailCtrl', ChatDetailCtrl)
 
-  function ChatDetailCtrl($scope, $state, $stateParams, ChatsSrv, MessagesSrv, AuthentificationSrv) {
+  function ChatDetailCtrl($scope, $state, $stateParams, ChatsSrv, MessagesSrv, AuthentificationSrv, moment) {
     $scope.user = AuthentificationSrv.user();
 
     $scope.$on('$ionicView.enter', function () {

@@ -1,12 +1,12 @@
 <ion-view id="chat-detail" view-title="{{chat.name}}">
   <ion-content has-bouncing="true" class="has-header has-footer">
-    <div ng-repeat="message in messages" class="message-wrapper">
+    <div ng-repeat="message in messages | orderBy: 'send_date'" class="message-wrapper">
       <div ng-if="user._id !== message.sender_id">
         <div class="chat-bubble left">
           <div class="message" ng-bind-html="message.message"></div>
           <div class="message-detail">
             <span class="bold">{{message.sender}}</span>,
-            <span>{{ message.send_date | date:'medium' }}</span>
+            <span am-time-ago="message.send_date"></span>
           </div>
         </div>
       </div>
@@ -16,7 +16,7 @@
           <div class="message-detail">
             <!--<span class="bold">{{message.sender}}</span>,-->
             <span class="bold">Vous</span>,
-            <span>{{ message.send_date | date: 'medium' }}</span>
+            <span am-time-ago="message.send_date"></span>
           </div>
         </div>
       </div>

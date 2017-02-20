@@ -1,4 +1,4 @@
-angular.module('whatsapplike', ['ionic', 'whatsapplike.controllers', 'whatsapplike.services'])
+angular.module('whatsapplike', ['ionic', 'whatsapplike.controllers', 'whatsapplike.services', 'angularMoment'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
