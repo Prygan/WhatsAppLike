@@ -2,42 +2,27 @@
   'use_strict'
   angular.module('whatsapplike.services').factory('AuthentificationSrv', AuthentificationSrv);
 
-  function AuthentificationSrv($http, $log, $q, UsersSrv) {
-    var user = null;
-
-    function authentificate(email, password){
-      var deferred = $q.defer();
-      if(!user) {
-        UsersSrv.all().then(function(response) {
-          var user_found = response.find(u => u.email === email && u.password === password);
-          if(user_found) {
-              user = {
-                _id : user_found._id,
-                firstName : user_found.firstName,
-                lastName : user_found.lastName,
-                email : user_found.email
-              }
-              deferred.resolve(user);
-          }
-          else
-              deferred.reject(new Error("no user found"));
-        }, function(error) {
-          $log.error(error);
-          deferred.reject(error);
-        });
-      } else {
-        deferred.resolve(user);
-      }
-      return deferred.promise;
-    }
+  function AuthentificationSrv($firebaseAuth, $http, $log, $q, UsersSrv) {
+    var auth = $firebaseAuth();
 
     return {
-      auth: function(email, password) {
-        return authentificate(email, password);
+      signup: function(firstName, lastName, email, password) {
+        return auth.$createUserWithEmailAndPassword(email, password).then(function(user){
+          return UsersSrv.add(user.uid, firstName, lastName, email);
+        });
       },
-      user: _ => user,
+      auth: function(email, password) {
+        return auth.$signInWithEmailAndPassword(email, password);
+      },
+      user: function() {
+        var user = auth.$getAuth();
+        return {
+          id: user.uid,
+          email: user.email
+        }
+      },
       signout: function(){
-        user = null;
+        return auth.$signOut();
       }
     };
   }

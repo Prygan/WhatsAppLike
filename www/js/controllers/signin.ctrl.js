@@ -5,18 +5,15 @@
   function SigninCtrl($scope, $state, AuthentificationSrv) {
     $scope.input = {};
 
-    $scope.$on('$ionicView.enter', function () {
-      if(AuthentificationSrv.user()) {
-        $state.go('tab.chats');
-      }
-    });
-
-    $scope.signIn = function(signInForm) {
-      AuthentificationSrv.auth($scope.input.email, $scope.input.password).then(function(user) {
-        if(user) {
-          $state.go('tab.chats');
+    $scope.signIn = function() {
+      AuthentificationSrv.auth($scope.input.email, $scope.input.password).then(
+        function() {
+          $state.go('tab.contacts');
+        },
+        function(err) {
+          console.log(err);
         }
-      });
+      );
     }
   }
 })();
