@@ -1,29 +1,28 @@
 <ion-view id="chat-detail" view-title="{{chat.name}}">
   <ion-content has-bouncing="true" class="has-header has-footer">
-    <div ng-repeat="message in messages | orderBy: 'send_date'" class="message-wrapper">
-      <div ng-if="user._id !== message.sender_id">
+    <div ng-repeat="message in messages | orderBy: 'sendDate'" class="message-wrapper">
+      <div ng-if="user.id !== message.senderId">
         <div class="chat-bubble left">
-          <div class="message" ng-bind-html="message.message"></div>
+          <div class="message" ng-bind-html="message.text"></div>
           <div class="message-detail">
             <span class="bold">{{message.sender}}</span>,
-            <span am-time-ago="message.send_date"></span>
+            <span am-time-ago="message.sendDate"></span>
           </div>
         </div>
       </div>
-      <div ng-if="user._id === message.sender_id">
+      <div ng-if="user.id === message.senderId">
         <div class="chat-bubble right">
-          <div class="message" ng-bind-html="message.message"></div>
+          <div class="message" ng-bind-html="message.text"></div>
           <div class="message-detail">
-            <!--<span class="bold">{{message.sender}}</span>,-->
-            <span class="bold">Vous</span>,
-            <span am-time-ago="message.send_date"></span>
+            <span class="bold">{{message.sender}}</span>
+            <span am-time-ago="message.sendDate"></span>
           </div>
         </div>
       </div>
       <div class="cf"></div>
     </div>
   </ion-content>
-  <form name="sendMessageForm" ng-submit="sendMessage(sendMessageForm)" novalidate>
+  <form name="sendMessageForm" ng-submit="sendMessage()" novalidate>
     <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
       <label class="item-input-wrapper">
         <textarea ng-model="input.message" value="" placeholder="Send a new message..." required minlength="1" maxlength="1500" msd-elastic></textarea>

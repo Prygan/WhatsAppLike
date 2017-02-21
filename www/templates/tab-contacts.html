@@ -7,7 +7,7 @@
       </label>
     </div>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="contact in contacts | filter:{firstName: name}" type="item-text-wrap" href="#/tab/contacts/{{contact._id}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="contact in contacts | filter:{firstName: name}" type="item-text-wrap" href="#/tab/contacts/{{contact.$id}}">
         <p>{{contact.firstName}} {{contact.lastName}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
