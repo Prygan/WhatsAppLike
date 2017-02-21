@@ -2,7 +2,7 @@
   'use_strict'
   angular.module('whatsapplike.services').factory('ChatsSrv', ChatsSrv);
 
-  function ChatsSrv($http, $log, $q, $firebaseArray, $firebaseObject, UuidSrv) {
+  function ChatsSrv($http, $log, $q, $firebaseArray, $firebaseObject) {
     var ref = firebase.database().ref();
 
     return {
