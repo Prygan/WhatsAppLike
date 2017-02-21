@@ -2,7 +2,8 @@
   'use_strict'
   angular.module('whatsapplike.services').factory('ContactsSrv', ContactsSrv);
 
-  function ContactsSrv($http, $log, $q) {
+  function ContactsSrv($http, $log, $q, $firebaseArray) {
+    var ref = firebase.database().ref();
     var contacts = null;
 
     function loadContacts(){
@@ -23,7 +24,7 @@
 
     return {
       all: function() {
-        return loadContacts();
+        return $firebaseArray(ref.child('users'));
       },
       remove: function(contact) {
         return loadContacts().then(contacts => contacts.splice(contacts.indexOf(contact), 1));
