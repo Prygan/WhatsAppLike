@@ -2,29 +2,12 @@
   'use_strict'
   angular.module('whatsapplike.services').factory('UsersSrv', UsersSrv);
 
-  function UsersSrv($http, $log, $q, $firebaseObject) {
+  function UsersSrv($http, $log, $q, $firebaseObject, $firebaseArray) {
     var ref = firebase.database().ref();
-    var users = null;
-
-    function loadUsers(){
-      var deferred = $q.defer();
-      if(!users) {
-        $http.get('/data/users.json').then(function(response) {
-          users = response.data;
-          deferred.resolve(users);
-        }, function(error) {
-          $log.error(error);
-          deferred.reject(error);
-        });
-      } else {
-        deferred.resolve(users);
-      }
-      return deferred.promise;
-    }
 
     return {
       all: function() {
-        return loadUsers();
+        return $firebaseArray(ref.child('users'));
       },
       get: function(id) {
         return $firebaseObject(ref.child('users').child(id));

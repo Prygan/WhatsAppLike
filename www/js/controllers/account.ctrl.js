@@ -10,6 +10,7 @@
           lastName: user.lastName,
           email: user.email
         }
+        console.log($scope.user);
       }
     );
 
