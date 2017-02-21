@@ -23,6 +23,9 @@
       },
       signout: function(){
         return auth.$signOut();
+      },
+      isConnected: function() {
+        return auth.$requireSignIn();
       }
     };
   }

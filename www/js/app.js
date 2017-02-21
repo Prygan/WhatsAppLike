@@ -16,6 +16,14 @@ angular.module('whatsapplike', ['ionic', 'whatsapplike.controllers', 'whatsappli
   });
 })
 
+.run(["$rootScope", "$state", function ($rootScope, $state) {
+    $rootScope.$on("$stateChangeError", function (event, toState, toParams, fromState, fromParams, error) {
+      if (error === "AUTH_REQUIRED") {
+        $state.go('signin');
+      }
+    })
+}])
+
 .config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -28,7 +36,12 @@ angular.module('whatsapplike', ['ionic', 'whatsapplike.controllers', 'whatsappli
   .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: 'templates/tabs.html',
+    resolve: {
+      'authentification': function (AuthentificationSrv) {
+        return AuthentificationSrv.isConnected();
+      }
+    }
   })
 
   // Each tab has its own nav history stack:
