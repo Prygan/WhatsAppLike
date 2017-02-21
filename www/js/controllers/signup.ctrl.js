@@ -2,7 +2,7 @@
   'use_strict'
   angular.module('whatsapplike.controllers').controller('SignupCtrl', SignupCtrl)
 
-  function SignupCtrl($scope, $state, UsersSrv, AuthentificationSrv) {
+  function SignupCtrl($scope, $state, $ionicPopup, UsersSrv, AuthentificationSrv) {
     $scope.input = {};
 
     $scope.signUp = function() {
@@ -10,8 +10,11 @@
         function() {
           $state.go('tab.contacts');
         },
-        function(err) {
-          console.log(err);
+        function() {
+          $ionicPopup.alert({
+            title: 'Impossible de créer le compte',
+            template: 'Un compte existe déjà pour cette adresse mail !'
+          });
         }
       );
     }
